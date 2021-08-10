@@ -3,6 +3,12 @@ body{
     text-align: center;
     color:white;
 }
+button{
+    width: 80px;
+    height: 40px;
+    visibility:hidden;
+}
+
 section{
     background-image: url(Jeu.jpg);
     background-size:cover;
@@ -10,9 +16,12 @@ section{
     height: 100vh;
     text-align: center;
     margin: auto;
+    padding-top: 10vh;
 }
 div{
     justify-content: center;
+    padding: 10px;
+    text-align:center;
 
 }
 .guess{
@@ -22,7 +31,7 @@ div{
 }
 .found{
     width:20px;
-    margin:auto;
+    margin: 0;
     visibility: visible;
 }
 #lettres{
@@ -32,9 +41,11 @@ div{
     margin: 10%;
 }
 #essai{
-    opacity: 0.3;
+    opacity: 0.5;
     text-align:center;
     vertical-align: center;
+    width: 40px;
+    height: 40px;
 }
 .bord{
     border-bottom: 3px white solid;
