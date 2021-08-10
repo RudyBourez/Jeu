@@ -1,0 +1,43 @@
+body{
+    background-color: black;
+    text-align: center;
+    color:white;
+}
+section{
+    background-image: url(Jeu.jpg);
+    background-size:cover;
+    max-width:80%;
+    height: 100vh;
+    text-align: center;
+    margin: auto;
+}
+div{
+    justify-content: center;
+
+}
+.guess{
+    width:20px;
+    margin:auto;
+    visibility: hidden;
+}
+.found{
+    width:20px;
+    margin:auto;
+    visibility: visible;
+}
+#lettres{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10%;
+}
+#essai{
+    opacity: 0.3;
+    text-align:center;
+    vertical-align: center;
+}
+.bord{
+    border-bottom: 3px white solid;
+    width:20px;
+    margin:auto;
+}
