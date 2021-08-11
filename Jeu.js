@@ -1,6 +1,6 @@
 // Variables
 
-var mot = ["automne", "parental", "code", "rapiere", "fleuve", "fenetre", "cathedrale", "hiver", "prinptemps", "ete", "vitesse", "constitution", "chimie", "physique", "mathematique", "tissu", "fil"];
+var mot = ["automne","rose", "prix", "parental", "code", "rapiere", "fleuve", "fenetre", "cathedrale", "hiver", "prinptemps", "ete", "vitesse", "constitution", "chimie", "physique", "mathematique", "tissu", "fil"];
 var currentDiv = document.getElementById('lettres');
 const parFound = document.getElementById('found')
 var essais = document.getElementById('essai')
@@ -32,12 +32,12 @@ function chooseMot() {
 function checkLetters() {
   let currentGuess = document.querySelectorAll('.guess');
   let currentFound = document.querySelectorAll('.found');
-  // tentative -= 1;
-  // test.innerHTML=tentative;  
+
   if (decomposition.some((element) => element == essais.value.toUpperCase())) {
     currentGuess.forEach(element => {
       if (element.innerHTML == essais.value.toUpperCase()) {
         element.className = "found";
+        element.parentNode.style.border="0";
         countLetter += 1;
       }
     })
