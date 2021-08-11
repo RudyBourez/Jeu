@@ -20,7 +20,7 @@ function chooseMot() {
   randomMot = mot[Math.round(Math.random() * mot.length)].toUpperCase();
   decomposition = randomMot.split(``);
   for (let i = 0; i < decomposition.length; i++) {
-    currentDiv.innerHTML += ('<div class="bord"><p class="guess">' + decomposition[i] + '</p></div>');
+    currentDiv.innerHTML += ('<div class="bord"><p id="letter'+i+'"></p></div>');
   };
   return;
 }
@@ -30,23 +30,22 @@ function chooseMot() {
 // Test input
 
 function checkLetters() {
-  let currentGuess = document.querySelectorAll('.guess');
+
   let currentFound = document.querySelectorAll('.found');
 
-  if (decomposition.some((element) => element == essais.value.toUpperCase())) {
-    currentGuess.forEach(element => {
-      if (element.innerHTML == essais.value.toUpperCase()) {
-        element.className = "found";
-        element.parentNode.style.border="0";
-        countLetter += 1;
-      }
-    })
-  }
-  else {
+  if (decomposition.every((element) => element != essais.value.toUpperCase())) {
     tentative -= 1;
     test.innerHTML = tentative;
-  };
+  }
 
+    for (let i=0; i < decomposition.length; i++){
+      let currentGuess = document.getElementById('letter'+i+'');
+      if (decomposition[i] == essais.value.toUpperCase()) {
+        currentGuess.innerHTML += essais.value.toUpperCase();
+        currentGuess.parentNode.style.border="0";
+        countLetter += 1;
+      }}
+  
   if (test.innerHTML == 0) {
     let perdu = "Dommage, vous avez perdu." + '\n' + "Le mot était :   " + randomMot;
     alert(perdu);
