@@ -29,11 +29,7 @@ section:nth-child(){
     margin:auto;
     visibility: hidden;
 }
-.found{
-    width:20px;
-    margin: 0;
-    visibility: visible;
-}
+
 #lettres{
     display:flex;
     flex-wrap: wrap;

@@ -8,9 +8,9 @@ var randomMot;
 var decomposition;
 var tentative = 8;
 var test = document.getElementById('nbTentative');
-var countLetter = 0;
 test.innerHTML = tentative;
 const button = document.getElementById('button')
+var final
 
 //--------------------------------------------------------------------------------------------------------
 
@@ -31,8 +31,6 @@ function chooseMot() {
 
 function checkLetters() {
 
-  let currentFound = document.querySelectorAll('.found');
-
   if (decomposition.every((element) => element != essais.value.toUpperCase())) {
     tentative -= 1;
     test.innerHTML = tentative;
@@ -41,17 +39,18 @@ function checkLetters() {
     for (let i=0; i < decomposition.length; i++){
       let currentGuess = document.getElementById('letter'+i+'');
       if (decomposition[i] == essais.value.toUpperCase()) {
-        currentGuess.innerHTML += essais.value.toUpperCase();
-        currentGuess.parentNode.style.border="0";
-        countLetter += 1;
+        currentGuess.innerHTML = essais.value.toUpperCase();
+        currentGuess.parentNode.style.border="0"
+        currentGuess.classList.add('victoire');
       }}
-  
+      let victoire = document.getElementsByClassName('victoire');
   if (test.innerHTML == 0) {
     let perdu = "Dommage, vous avez perdu." + '\n' + "Le mot était :   " + randomMot;
     alert(perdu);
     document.getElementById('click').style.visibility = "visible";
   }
-  else if (countLetter === decomposition.length) {
+  
+  else if (victoire.length == randomMot.length) {
     setTimeout(function () {
       alert("Bravo, vous avez gagné!!!");
       document.getElementById('click').style.visibility = "visible";
